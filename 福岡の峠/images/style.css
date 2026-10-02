@@ -1,0 +1,987 @@
+/* =========================================================
+   基本設定
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 30px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    color: #111;
+
+    font-family:
+        "Yu Mincho",
+        "YuMincho",
+        "Hiragino Mincho ProN",
+        "Hiragino Mincho Pro",
+        "Noto Serif JP",
+        serif;
+
+    background: #ffffff;
+
+    line-height: 1.85;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   画像
+========================================================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure {
+    margin: 0;
+}
+
+figure img {
+    cursor: zoom-in;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+figure img:hover {
+    transform: scale(1.015);
+
+    filter: brightness(1.05);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+figcaption {
+    margin-top: 8px;
+
+    text-align: center;
+
+    font-size: 0.85rem;
+
+    color: #333;
+}
+
+
+/* =========================================================
+   リンク
+========================================================= */
+
+a {
+    color: #0645ad;
+
+    text-decoration: underline;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+a:hover {
+    color: #ffffff;
+
+    background-color: #0645ad;
+}
+
+
+/* =========================================================
+   ヒーロー
+========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 430px;
+
+    overflow: hidden;
+
+    border-bottom: 4px solid #111;
+}
+
+.hero-image {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+}
+
+.hero-photo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    cursor: zoom-in;
+
+    filter:
+        brightness(0.62)
+        saturate(0.9);
+}
+
+.hero-overlay {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: flex-start;
+
+    padding:
+        25px
+        4vw;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: clamp(2.3rem, 5vw, 5.2rem);
+
+    line-height: 1.2;
+
+    color: #ffffff;
+
+    text-shadow:
+        2px 2px 0 #000,
+        3px 3px 8px rgba(0, 0, 0, 0.8);
+
+    font-weight: 700;
+}
+
+.danger {
+    color: #e60000;
+}
+
+.accident {
+    color: #ffe500;
+}
+
+
+/* =========================================================
+   青グラデーション
+========================================================= */
+
+.blue-section {
+    background:
+        linear-gradient(
+            110deg,
+            #d9edf9 0%,
+            #5bb8e0 48%,
+            #0074ad 100%
+        );
+
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================================================
+   セクション
+========================================================= */
+
+.section {
+    width: 100%;
+
+    padding:
+        70px
+        clamp(20px, 7vw, 100px);
+}
+
+.section > h2,
+.blue-section > h2,
+.camouflage-section > h2 {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   タイトル
+========================================================= */
+
+h2 {
+    margin-bottom: 35px;
+
+    text-align: center;
+
+    font-size: clamp(2rem, 4vw, 4rem);
+
+    line-height: 1.25;
+
+    font-weight: 700;
+}
+
+h3 {
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   目次
+========================================================= */
+
+.contents {
+    width: min(900px, 90%);
+
+    margin: 60px auto;
+
+    padding:
+        45px
+        clamp(25px, 6vw, 70px);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+.contents h2 {
+    margin-bottom: 25px;
+
+    font-size: 2.4rem;
+}
+
+.contents ol {
+    margin: 0;
+
+    padding-left: 2.3em;
+}
+
+.contents li {
+    margin: 8px 0;
+
+    font-size: clamp(1rem, 2vw, 1.4rem);
+
+    font-weight: 700;
+}
+
+.contents a {
+    color: #111;
+
+    text-decoration: none;
+
+    padding: 2px 7px;
+}
+
+.contents a:hover {
+    color: #ffffff;
+
+    background: #1d6d8f;
+
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   迷彩背景
+   ※資料画像の雰囲気をCSSだけで再現
+========================================================= */
+
+.camouflage-section {
+    position: relative;
+
+    background-color: #e8ead7;
+
+    background-image:
+        radial-gradient(
+            ellipse at 20% 20%,
+            rgba(255,255,255,0.9) 0 9%,
+            transparent 10%
+        ),
+        radial-gradient(
+            ellipse at 75% 25%,
+            rgba(175,205,191,0.75) 0 8%,
+            transparent 9%
+        ),
+        radial-gradient(
+            ellipse at 35% 70%,
+            rgba(153,185,150,0.65) 0 10%,
+            transparent 11%
+        ),
+        radial-gradient(
+            ellipse at 80% 75%,
+            rgba(198,213,193,0.8) 0 8%,
+            transparent 9%
+        ),
+        radial-gradient(
+            ellipse at 55% 45%,
+            rgba(143,170,180,0.55) 0 9%,
+            transparent 10%
+        );
+
+    background-size:
+        105px 85px,
+        135px 110px,
+        150px 120px,
+        120px 100px,
+        180px 140px;
+
+    background-position:
+        0 0,
+        40px 20px,
+        80px 0,
+        20px 65px,
+        100px 55px;
+}
+
+.camouflage-section::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            25deg,
+            rgba(255,255,255,0.08) 0 12px,
+            rgba(255,255,255,0) 12px 28px
+        );
+
+    mix-blend-mode: overlay;
+}
+
+.camouflage-section > * {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   本文
+========================================================= */
+
+.large-text {
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: clamp(1.05rem, 2vw, 1.45rem);
+
+    font-weight: 600;
+}
+
+.lead {
+    max-width: 1100px;
+
+    margin:
+        0 auto 20px;
+
+    text-align: center;
+
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+
+    font-weight: 600;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.intro {
+    padding:
+        65px
+        clamp(25px, 10vw, 150px);
+
+    font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+
+    font-weight: 600;
+}
+
+.intro p {
+    max-width: 1100px;
+
+    margin:
+        0 auto 18px;
+}
+
+
+/* =========================================================
+   画像グリッド
+========================================================= */
+
+.image-grid {
+    display: grid;
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin:
+        45px auto 20px;
+}
+
+.image-grid.two {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+}
+
+.image-grid.three {
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+}
+
+.image-grid figure {
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 1px solid rgba(0,0,0,0.2);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.15);
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+
+    max-height: 450px;
+
+    object-fit: cover;
+}
+
+.illustration-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 40px;
+
+    max-width: 1000px;
+
+    margin:
+        55px auto 0;
+}
+
+.illustration-grid figure {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.illustration-grid img {
+    max-height: 420px;
+}
+
+.single-image {
+    max-width: 430px;
+
+    margin:
+        50px auto 20px;
+}
+
+.single-image img {
+    width: 100%;
+
+    border:
+        1px solid rgba(0,0,0,0.2);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+/* =========================================================
+   重要文章
+========================================================= */
+
+.important-text {
+    max-width: 1250px;
+
+    margin: auto;
+
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+
+    font-weight: 600;
+}
+
+.important-text p {
+    margin: 12px 0;
+}
+
+
+/* =========================================================
+   色文字
+========================================================= */
+
+.red {
+    color: #ff0000;
+}
+
+.yellow {
+    color: #fff000;
+}
+
+.purple {
+    color: #6b20d9;
+}
+
+.blue {
+    color: #003cff;
+}
+
+
+/* =========================================================
+   リスクボックス
+========================================================= */
+
+.risk-box {
+    max-width: 1150px;
+
+    margin:
+        35px auto;
+
+    padding:
+        25px 35px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(220,240,250,0.92),
+            rgba(0,111,169,0.92)
+        );
+
+    color: #111;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.15);
+}
+
+.risk-box h3 {
+    margin-top: 10px;
+}
+
+.risk-box p {
+    font-size: 1.1rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   英彦山分析
+========================================================= */
+
+.analysis-block {
+    max-width: 1250px;
+
+    margin:
+        0 auto 30px;
+
+    padding:
+        20px 30px;
+
+    border-left:
+        7px solid rgba(255,255,255,0.8);
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+.analysis-block h3 {
+    margin-top: 0;
+}
+
+.analysis-block p {
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   猫峠 リスク表
+========================================================= */
+
+.risk-table {
+    max-width: 1150px;
+
+    margin:
+        45px auto;
+
+    border:
+        1px solid #222;
+
+    background: #f4f4e8;
+}
+
+.risk-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1.4fr;
+
+    border-bottom:
+        1px solid #777;
+}
+
+.risk-row:last-child {
+    border-bottom: none;
+}
+
+.risk-row > div {
+    padding:
+        12px 18px;
+
+    border-right:
+        1px solid #777;
+}
+
+.risk-row > div:last-child {
+    border-right: none;
+}
+
+.risk-row.header {
+    background: #111;
+
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+.risk-row:not(.header) {
+    font-size: 1rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   出典
+========================================================= */
+
+.source {
+    max-width: 1200px;
+
+    margin:
+        15px auto 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+}
+
+.source a {
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   まとめ
+========================================================= */
+
+.summary {
+    min-height: 600px;
+}
+
+.summary-image {
+    max-width: 1000px;
+
+    margin:
+        50px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+.summary-image img {
+    width: 100%;
+
+    max-height: 450px;
+
+    object-fit: contain;
+
+    cursor: zoom-in;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.summary-image img:hover {
+    transform: scale(1.02);
+
+    filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   フッター
+========================================================= */
+
+footer {
+    padding:
+        60px
+        clamp(25px, 8vw, 100px);
+
+    background: #151515;
+
+    color: #ffffff;
+}
+
+footer h2 {
+    text-align: left;
+
+    font-size: 2rem;
+
+    margin-bottom: 20px;
+}
+
+footer ul {
+    max-width: 1100px;
+
+    padding-left: 25px;
+}
+
+footer li {
+    margin: 8px 0;
+}
+
+footer a {
+    color: #8bdcff;
+}
+
+footer a:hover {
+    color: #ffffff;
+
+    background: #006b9e;
+}
+
+.copyright {
+    margin-top: 50px;
+
+    text-align: center;
+
+    color: #aaa;
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   ライトボックス
+========================================================= */
+
+.lightbox {
+    position: fixed;
+
+    z-index: 9999;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        rgba(0, 0, 0, 0.88);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.lightbox img {
+    max-width: 94vw;
+
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    cursor: zoom-out;
+
+    box-shadow:
+        0 0 50px rgba(255,255,255,0.18);
+}
+
+.lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 52px;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.92);
+
+    color: #111;
+
+    font-size: 36px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    background: #ffffff;
+
+    transform: scale(1.08);
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   スマートフォン
+========================================================= */
+
+@media (max-width: 800px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .hero {
+        min-height: 300px;
+    }
+
+    .hero-overlay {
+        min-height: 300px;
+
+        padding: 20px;
+    }
+
+    .section {
+        padding:
+            50px 20px;
+    }
+
+    .intro {
+        padding:
+            45px 20px;
+    }
+
+    .image-grid.two,
+    .image-grid.three,
+    .illustration-grid,
+    .summary-image {
+        grid-template-columns: 1fr;
+    }
+
+    .contents {
+        width: 94%;
+
+        padding:
+            30px 20px;
+    }
+
+    .risk-row {
+        grid-template-columns: 1fr;
+    }
+
+    .risk-row > div {
+        border-right: none;
+
+        border-bottom:
+            1px solid #aaa;
+    }
+
+    .risk-row > div:last-child {
+        border-bottom: none;
+    }
+
+    .analysis-block {
+        padding:
+            15px 18px;
+    }
+
+    .lightbox {
+        padding: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   印刷
+========================================================= */
+
+@media print {
+
+    body {
+        font-size: 12pt;
+    }
+
+    .lightbox {
+        display: none !important;
+    }
+
+    a {
+        color: #000;
+
+        text-decoration: underline;
+    }
+
+    .hero {
+        min-height: 300px;
+    }
+
+    .section {
+        break-inside: avoid;
+    }
+
+}
